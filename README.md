@@ -1,15 +1,16 @@
 Docker for Shiny Server
 =======================
 
-This is a Dockerfile for Shiny Server on Debian "testing". It is based on the rocker/r-base image.
+This is a Dockerfile for Shiny Server on Debian "testing". It is based on the r-base image.
 
+The image is available from [Docker Hub](https://registry.hub.docker.com/u/rocker/shiny/).
 
 ## Usage:
 
 To run a temporary container with Shiny Server:
 
 ```sh
-docker run --rm -p 3838:3838 wch1/r-shiny-server
+docker run --rm -p 3838:3838 rocker/shiny
 ```
 
 
@@ -19,7 +20,7 @@ To expose a directory on the host to the container use `-v <host_dir>:<container
 docker run --rm -p 3838:3838 \
     -v /srv/shinyapps/:/srv/shiny-server/ \
     -v /srv/shinylog/:/var/log/ \
-    wch1/r-shiny-server
+    rocker/shiny
 ```
 
 If you have an app in /srv/shinyapps/appdir, you can run the app by visiting http://localhost:3838/appdir/. (If using boot2docker, visit http://192.168.59.103:3838/appdir/)
@@ -31,5 +32,10 @@ In a real deployment scenario, you will probably want to run the container in de
 docker run -d -p 80:3838 \
     -v /srv/shinyapps/:/srv/shiny-server/ \
     -v /srv/shinylog/:/var/log/ \
-    wch1/r-shiny-server
+    rocker/shiny
 ```
+
+
+## Trademarks
+
+Shiny and Shiny Server are registered trademarks of RStudio, Inc. The use of the trademarked terms Shiny and Shiny Server and the distribution of the Shiny Server through the images hosted on hub.docker.com has been granted by explicit permission of RStudio. Please review RStudio's trademark use policy and address inquiries about further distribution or other questions to permissions@rstudio.com.
