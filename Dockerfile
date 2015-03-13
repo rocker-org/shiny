@@ -31,4 +31,6 @@ EXPOSE 3838
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh
 
+ENV LANG en_US.UTF-8
+
 CMD ["/usr/bin/shiny-server.sh"]
