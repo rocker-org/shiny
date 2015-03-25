@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     pandoc \
     pandoc-citeproc \
     libcurl4-gnutls-dev \
-    libcairo2-dev \
+    libcairo2-dev/unstable \
     libxt-dev
 
 # Download and install libssl 0.9.8
