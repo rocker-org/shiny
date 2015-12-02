@@ -2,7 +2,7 @@ FROM r-base:latest
 
 MAINTAINER Winston Chang "winston@rstudio.com"
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y -t unstable \
     sudo \
     gdebi-core \
     pandoc \
