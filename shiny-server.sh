@@ -4,4 +4,4 @@
 mkdir -p /var/log/shiny-server
 chown shiny.shiny /var/log/shiny-server
 
-exec shiny-server 2>&1 | tee --append /var/log/shiny-server.log
+exec shiny-server 2>&1
