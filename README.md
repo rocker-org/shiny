@@ -37,6 +37,20 @@ docker run -d -p 80:3838 \
     rocker/shiny
 ```
 
+## A debian:stable build
+
+The base docker image for this Dockerfile uses `r-base:latest`, which in turn uses `debian:testing`. For a `debian:stable` shiny-server, use the [rocker/rstudio](https://hub.docker.com/r/rocker/rstudio/) image. The image contains an [option](https://github.com/rocker-org/rocker/tree/master/rstudio#add-shiny-server-on-start-up-with-e-addshiny) to enable shiny-server at runtime. A minimal Dockerfile example:
+
+```
+FROM rocker/rstudio:3.4.3
+
+EXPOSE 3838
+
+RUN export ADD="shiny" && \
+    bash /etc/cont-init.d/add
+
+CMD ["/usr/bin/shiny-server"]
+```
 
 ## Trademarks
 
