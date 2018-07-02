@@ -1,0 +1,25 @@
+version: "3.0"
+
+services:
+  shiny:
+    container_name: shiny
+    # To build the image locally, comment out "image" below, and uncomment
+    # "build" and the lines indented under it.
+    # image: rocker/shiny
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    # Setting this to something other than 'root' will cause shiny apps not to
+    # run on the localhost:80 "Welcome to Shiny" diagnostics page mentioned
+    # below.
+    user: 'root'
+    ports:
+      - '80:3838'
+    volumes:
+      - './mountpoints/logs:/var/log/shiny-server'
+      # Comment the line below out for initial testing. With it commented out,
+      # going to localhost:80 in one's web browser will show a "Welcome to
+      # Shiny Server!" diagnostics page.
+      # - './mountpoints/apps:/srv/shiny-server'
+
