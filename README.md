@@ -12,29 +12,22 @@ As of January 2017, the Shiny Server log is written to `stdout` and can be viewe
 To run a temporary container with Shiny Server:
 
 ```sh
-docker run --rm -p 3838:3838 rocker/shiny
+docker-compose up
 ```
 
+Then visit `http://localhost` (i.e., `http://localhost:80`) in a web browser.
 
-To expose a directory on the host to the container use `-v <host_dir>:<container_dir>`. The following command will use one `/srv/shinyapps` as the Shiny app directory and `/srv/shinylog` as the directory for Shiny app logs. Note that if the directories on the host don't already exist, they will be created automatically.:
+To add a Shiny app:
 
-```sh
-docker run --rm -p 3838:3838 \
-    -v /srv/shinyapps/:/srv/shiny-server/ \
-    -v /srv/shinylog/:/var/log/shiny-server/ \
-    rocker/shiny
-```
+1. Uncomment the last line of `docker-compose.yml`.
+1. Place the app in `mountpoints/apps/the-name-of-the-app`, replacing `the-name-of-the-app` with your app's name.
 
-If you have an app in /srv/shinyapps/appdir, you can run the app by visiting http://localhost:3838/appdir/. (If using boot2docker, visit http://192.168.59.103:3838/appdir/)
+If you have an app in `mountpoints/apps/appdir`, you can run the app by visiting http://localhost/appdir/. (If using boot2docker, visit http://192.168.59.103:3838/appdir/)
 
-
-In a real deployment scenario, you will probably want to run the container in detached mode (`-d`) and listening on the host's port 80 (`-p 80:3838`):
+In a real deployment scenario, you will probably want to run the container in detached mode (`-d`):
 
 ```sh
-docker run -d -p 80:3838 \
-    -v /srv/shinyapps/:/srv/shiny-server/ \
-    -v /srv/shinylog/:/var/log/shiny-server/ \
-    rocker/shiny
+docker-compose up -d
 ```
 
 
