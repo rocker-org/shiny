@@ -47,7 +47,7 @@ This repository includes an example `docker-compose` file, to facilitate using t
 docker-compose up
 ```
 
-Then visit `http://localhost` (i.e., `http://localhost:80`) in a web browser. If you have an app in `/srv/shinyapps/appdir`, you can run the app by visiting http://localhost:3838/appdir/.
+Then visit `http://localhost` (i.e., `http://localhost:80`) in a web browser. If you have an app in `/srv/shinyapps/appdir`, you can run the app by visiting http://localhost/appdir/.
 
 #### To add a Shiny app:
 
