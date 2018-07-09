@@ -2,10 +2,10 @@ FROM r-base:latest
 
 MAINTAINER Winston Chang "winston@rstudio.com"
 
-# Install dependencies and Download and install shiny server
+## Install dependencies and Download and install shiny server
 
-# See https://www.rstudio.com/products/shiny/download-server/ for the 
-# instructions followed here.
+## See https://www.rstudio.com/products/shiny/download-server/ for the
+## instructions followed here.
 
 RUN apt-get update && apt-get install -y -t unstable \
     sudo \
@@ -27,5 +27,13 @@ RUN apt-get update && apt-get install -y -t unstable \
 EXPOSE 3838
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh
+
+## Uncomment the line below to include a custom configuration file. You can download the default file at
+## https://raw.githubusercontent.com/rstudio/shiny-server/master/config/default.config
+## (The line below assumes that you have downloaded the file above to ./shiny-customized.config)
+## Documentation on configuration options is available at
+## http://docs.rstudio.com/shiny-server/
+
+# COPY shiny-customized.config /etc/shiny-server/shiny-server.conf
 
 CMD ["/usr/bin/shiny-server.sh"]
