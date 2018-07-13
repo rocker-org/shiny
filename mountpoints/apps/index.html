@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<!-- This file is modified from https://raw.githubusercontent.com/rstudio/shiny-server/cf0bf138a0ea38ba803ad96a6fef10ccd65f4ff9/samples/welcome.html,
+which is at /opt/shiny-server/samples/welcome.html by default in a shiny server. -->
+
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Welcome to Shiny Server!</title>
+  <style type="text/css">
+    body, html {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #F5F5F5;
+      color: #114;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    #titleBar {
+      height: 80px;
+      background-color: #3475b4;
+      overflow: hidden;
+      border-bottom: 1px solid #3475b3;
+      -moz-box-shadow:    0px 0px 10px 3px #BBC;
+      -webkit-box-shadow: 0px 0px 10px 3px #BBC;
+      box-shadow:         0px 0px 10px 3px #BBC;
+    }
+    #titleBar #container {
+      margin-top: 14px;
+    }
+    #titleBar h1 {
+      margin: 0 auto .5em auto;
+      padding: .2em;
+      color: #EEE;
+      text-align: center;
+    }
+    #intro {
+      background-color: #DDD;
+      margin: 1em 1em 0 1em;
+      padding: .75em;
+      text-align: center;
+      border: 1px solid #CCC;
+      font-size: 18px;
+    }
+    #intro p {
+      margin: .3em 0 .3em 0;
+    }
+    #outer-content {
+      max-width: 910px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #content {
+      margin: 1em auto 1em auto;
+      float: left;
+    }
+    #main{
+      margin-right: 350px;
+      float: left;
+      line-height: 24px;
+    }
+
+    #shiny{
+      float: left;
+      width: 305px;
+      margin-left: -330px;
+      padding-left: 20px;
+      border-left: 1px solid #AAA;
+    }
+    #shiny iframe {
+      margin-top: 30px;
+    }
+    .caption{
+      font-size: 13px;
+    }
+    code {
+      background-color: #E5E5E5;
+      border: 1px solid #AAA;
+      -webkit-border-radius: 3px;
+      -khtml-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      padding: 0 .5em 0 .5em;
+    }
+  </style>
+</head>
+<body>
+  <div id="titleBar">
+    <div id="container">
+      <h1>Welcome to Shiny Server!</h1>
+    </div>
+  </div>
+  <div id="outer-content">
+    <div id="intro">
+      <p>If you're seeing this page, that means Shiny Server is installed and running. <strong>Further, it is running from your custom mountpoint!</strong> </p>
+    </div>
+  </div>
+</body>
+</html>
