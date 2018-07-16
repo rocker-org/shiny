@@ -26,7 +26,7 @@ docker run --rm -p 3838:3838 \
     rocker/shiny
 ```
 
-If you have an app in ``/srv/shinyapps/appdir`, you can run the app by visiting http://localhost:3838/appdir/. (If using boot2docker, visit http://192.168.59.103:3838/appdir/)
+If you have an app in `/srv/shinyapps/appdir`, you can run the app by visiting http://localhost:3838/appdir/. (If using boot2docker, visit http://192.168.59.103:3838/appdir/)
 
 In a real deployment scenario, you will probably want to run the container in detached mode (`-d`) and listening on the host's port 80 (`-p 80:3838`):
 
