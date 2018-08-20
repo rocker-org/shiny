@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y \
     pandoc-citeproc \
     libcurl4-gnutls-dev \
     libcairo2-dev \
-    libxt-dev
+    libxt-dev \
+    wget
 
 # Download and install shiny server
 RUN wget --no-verbose https://download3.rstudio.org/ubuntu-14.04/x86_64/VERSION -O "version.txt" && \
