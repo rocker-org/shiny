@@ -1,4 +1,6 @@
-FROM rocker/r-ver:latest
+FROM rocker/r-ver:3.3.1
+
+MAINTAINER Winston Chang "winston@rstudio.com"
 
 RUN apt-get update && apt-get install -y \
     sudo \
@@ -10,9 +12,9 @@ RUN apt-get update && apt-get install -y \
     libxt-dev
 
 # Download and install shiny server
-RUN wget --no-verbose https://download3.rstudio.org/ubuntu-14.04/x86_64/VERSION -O "version.txt" && \
+RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/VERSION -O "version.txt" && \
     VERSION=$(cat version.txt)  && \
-    wget --no-verbose "https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb && \
+    wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb && \
     gdebi -n ss-latest.deb && \
     rm -f version.txt ss-latest.deb && \
     . /etc/environment && \
