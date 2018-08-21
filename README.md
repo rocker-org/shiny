@@ -4,9 +4,9 @@ Docker for Shiny Server
 This is a Dockerfile for Shiny Server on Debian stable.  Dockerfiles building on specific versions of R are now available as tags.  These images are based on the corresponding [r-ver](https://hub.docker.com/rocker/r-ver) image.  You can request a specific R version using the appropriate tag, e.g. `rocker/shiny:3.3.2`.    
 
 
-The images is available from [Docker Hub](https://registry.hub.docker.com/u/rocker/shiny/).
+The images are available from [Docker Hub](https://registry.hub.docker.com/u/rocker/shiny/).
 
-As of January 2017, the Shiny Server log is written to `stdout` and can be viewed using `docker logs`. The logs for individual apps are in the `/var/log/shiny-server` directory, as described in the [Shiny Server Administrator's Guide]( http://docs.rstudio.com/shiny-server/#application-error-logs)
+
 
 
 
@@ -49,6 +49,10 @@ In the logs, you may see a note that shiny is running as root.  To run as a regu
 docker run --user shiny -p 3838:3838 --rm rocker/shiny
 ```
 
+
+### Logs
+
+As of January 2017, the Shiny Server log is written to `stdout` and can be viewed using `docker logs`. The logs for individual apps are in the `/var/log/shiny-server` directory, as described in the [Shiny Server Administrator's Guide]( http://docs.rstudio.com/shiny-server/#application-error-logs)
 
 ### With docker-compose
 
