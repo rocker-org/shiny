@@ -1,8 +1,8 @@
-latest: 
+latest:
 	docker build -t rocker/shiny .
 
-sync: 
-	make 3.3.2 3.3.1
+sync:
+	echo 3.* devel | xargs -n 1 cp shiny-server.sh
 
 
 3.3.2: .PHONY
