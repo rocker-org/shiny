@@ -52,7 +52,10 @@ docker run --user shiny -p 3838:3838 --rm rocker/shiny
 
 ### Logs
 
-As of January 2017, the Shiny Server log is written to `stdout` and can be viewed using `docker logs`. The logs for individual apps are in the `/var/log/shiny-server` directory, as described in the [Shiny Server Administrator's Guide]( http://docs.rstudio.com/shiny-server/#application-error-logs)
+The Shiny Server log and all application logs are written to `stdout` and can be viewed using `docker logs`.
+
+The logs for individual apps are still kept in the `/var/log/shiny-server` directory, as described in the [Shiny Server Administrator's Guide]( http://docs.rstudio.com/shiny-server/#application-error-logs). If you want to avoid printing the logs to STDOUT, set up the environment variable `APPLICATION_LOGS_TO_STDOUT` to `false` (`-e APPLICATION_LOGS_TO_STDOUT=false`).
+
 
 ### With docker-compose
 
@@ -76,20 +79,6 @@ If you have an app in `mountpoints/apps/appdir`, you can run the app by visiting
 #### Logs
 
 The example `docker-compose` file will create a persistent volume for server logs, so that log data will persist across instances where the container is running. To access these logs, while the container is running, run `docker exec -it shiny bash` and then `ls /var/log/shiny-server` to see the available logs. To copy these logs to the host system for inspection, while the container is running, you can use, for example, `docker cp shiny:/var/log/shiny-server ./logs_for_inspection`.
-
-#### Push all aplication logs to STDOUT
-
-> This is experimental feature. Use it on your own risk!
-
-Original shiny-server does not have an option to push all the logs to STDOUT, however the Docker best practices highly recommend that.
-
-However, technically, there is a workaround to listen to filesystem events in the logs folder and push them to STDOUT.
-
-To enable this mode set `APPLICATION_LOGS_TO_STDOUT` to `true`.
-
-```sh
-docker run -it -e APPLICATION_LOGS_TO_STDOUT=true -p 3838:3838 shiny-local
-```
 
 #### Detached mode
 

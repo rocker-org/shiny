@@ -14,6 +14,9 @@ services:
     # run on the localhost:80 "Welcome to Shiny" diagnostics page mentioned
     # below.
     user: 'root'
+    # Uncomment the lines below to disable application logs STDOUT output
+    # environment:
+    #   - APPLICATION_LOGS_TO_STDOUT=false
     ports:
       - '80:3838'
     volumes:
