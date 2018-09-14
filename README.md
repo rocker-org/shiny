@@ -8,18 +8,31 @@ The images are available from [Docker Hub](https://registry.hub.docker.com/u/roc
 
 
 
-
-
-
 ## Usage:
 
-### With docker
 
 To run a temporary container with Shiny Server:
 
 ```sh
 docker run --rm -p 3838:3838 rocker/shiny
 ```
+
+To get specific version of R with your shiny image (e.g. 3.4.4):
+
+
+```sh
+docker run --rm -p 3838:3838 rocker/shiny:3.4.4
+```
+
+### Developer Notes
+
+- **avoid `apt-get install r-cran-*`** on this image stack.  The requested R version and all R packages are installed from source in the version-stable stack.  Installing R packages from `apt` (e.g. the `r-cran-*` packages) will install the version of R and versions of the packages that were built for the stable debian release (e.g. `debian:stretch`), giving you a second version of R and different packages.  Please install R packages from source using the `install.packages()` R function (or the `install2.r` script), and use `apt` only to install necessary system libraries (e.g. `libxml2`). If you would prefer to install only the latest verions of packages from pre-built binaries using `apt-get`, consider using the `r-base` stack instead.  See [rocker-versioned README](https://github.com/rocker-org/rocker-versioned) for details on extending these images. 
+
+### shiny-verse
+
+You can use `rocker/shiny-verse` image stack instead if you'd like `tidyverse` packages pre-installed on your instance of shiny.  
+
+### Connecting app and log directories to host
 
 To expose a directory on the host to the container, use `-v <host_dir>:<container_dir>`. The following command will use one `/srv/shinyapps` as the Shiny app directory and `/srv/shinylog` as the directory for Shiny app logs. Note that if the directories on the host don't already exist, they will be created automatically.:
 
