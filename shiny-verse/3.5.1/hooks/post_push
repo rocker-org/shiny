@@ -35,7 +35,7 @@ else
     echo "$NEWEST_MAJ is newest version starting with $MAJ, not tagging this one ($MAJ_MIN_BUG)."
 fi
 
-# Get "latest": list parent directory files starting with number, sort them and only select the last one
+## Get "latest": list parent directory files starting with number, sort them and only select the last one
 LATEST=`ls ../ | grep '^[0-9]' | sort --version-sort | tail -n 1`
 if [ "$MAJ_MIN_BUG" == "$LATEST" ]
 then
