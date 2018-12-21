@@ -1,4 +1,4 @@
-FROM rocker/r-ver:3.3.1
+FROM rocker/r-ver:3.3.2
 
 MAINTAINER Winston Chang "winston@rstudio.com"
 
@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libxt-dev \
     xtail \
     wget
+
 
 # Download and install shiny server
 RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/VERSION -O "version.txt" && \
