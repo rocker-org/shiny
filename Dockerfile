@@ -1,4 +1,4 @@
-FROM rocker/r-ver:3.4.3
+FROM rocker/r-ver:3.4.4
 
 RUN apt-get update && apt-get install -y \
     sudo \
