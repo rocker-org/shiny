@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+echo `pwd`
+VERSION=`grep -e "\d\.\d\.\d" -o Dockerfile`
+docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION
+docker push $DOCKER_REPO:$VERSION
+
+
+# docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_BRANCH
+# docker push $DOCKER_REPO:$SOURCE_BRANCH
+
+
