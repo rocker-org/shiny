@@ -1,4 +1,4 @@
-FROM rocker/shiny:3.5.2
+FROM rocker/shiny:3.5.3
 
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libxml2-dev \
