@@ -11,7 +11,6 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libcurl4-openssl-dev \
   libssh2-1-dev \
   unixodbc-dev \
-  && R -e "source('https://bioconductor.org/biocLite.R')" \
   && install2.r --error \
     --deps TRUE \
     tidyverse \
@@ -20,6 +19,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     formatR \
     remotes \
     selectr \
-    caTools
+    caTools \
+	BiocManager
 
 # not clear why selectr needs explicit re-install, see https://github.com/rocker-org/rocker-versioned/pull/63
