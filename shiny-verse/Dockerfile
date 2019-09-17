@@ -5,7 +5,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libcairo2-dev \
   libsqlite3-dev \
   libmariadbd-dev \
-  libmariadbclient-dev \
+  libmariadb-client-lgpl-dev \
   libpq-dev \
   libssl-dev \
   libcurl4-openssl-dev \
@@ -20,6 +20,6 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     remotes \
     selectr \
     caTools \
-    BiocManager
+	BiocManager
 
 # not clear why selectr needs explicit re-install, see https://github.com/rocker-org/rocker-versioned/pull/63
