@@ -1,4 +1,4 @@
-FROM rocker/shiny:3.6.1
+FROM rocker/shiny:3.6.3
 
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   libxml2-dev \
@@ -20,6 +20,6 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     remotes \
     selectr \
     caTools \
-	BiocManager
+	BiocManager \
+  && rm -rf /tmp/downloaded_packages
 
-# not clear why selectr needs explicit re-install, see https://github.com/rocker-org/rocker-versioned/pull/63
