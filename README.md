@@ -5,7 +5,7 @@ Docker for Shiny Server
 
 This is a Dockerfile for Shiny Server on Debian stable.  Dockerfiles building on specific versions of R are now available as tags.  These images are based on the corresponding [r-ver](https://hub.docker.com/r/rocker/r-ver) image.  You can request a specific R version using the appropriate tag, e.g. `rocker/shiny:3.3.2`.    
 
-
+***For documentation for R >= 4.0.0, for images `r-ver`, `rstudio`, `tidyverse`, `verse`, `geospatial`, `shiny`, and `binder`, please see the [`rocker-versioned2` repository`](https://github.com/rocker-org/rocker-versioned2).*** 
 
 
 ## Usage:
